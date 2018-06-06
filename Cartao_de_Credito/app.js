@@ -18,26 +18,28 @@ arrayInteiros(meuArrayInvertido);
 function separarMultiplicarSomar(meuArrayInvertido){
   var resultForPair = 0;
   var evenPosition = 0;
+  var resultForOdd = 0;
+  var total = 0;
   		for (i = 1; i < meuArrayInvertido.length; i++){// arrayImpar
-        
-    	  resultForPair = meuArrayInvertido[i]*2;
-        console.log(resultForPair);
-
+         resultForPair = meuArrayInvertido[i]*2;
+        //console.log(resultForPair);
     		if(resultForPair > 9){
-      			//var moreThanNine = resultForPair - 9;
             resultForPair = resultForPair - 9;
             evenPosition = evenPosition + resultForPair;
-           //evenPosition = evenPosition + moreThanNine;
-            console.log(evenPosition);
+            //console.log(evenPosition);
     		}else {
       			evenPosition = evenPosition + resultForPair;
-            console.log (evenPosition);
+            //console.log ("total é " + evenPosition);
     		}
     		i++;
-		}
-} for (i = 0; i < meuArrayInvertido.length; i++){// arrayPar
-        // var resultForOdd = 0;
-    	  // resultForOdd += resultForOdd;
-        // console.log(resultForOdd);
-}
-separarMultiplicarSomar(meuArrayInvertido);
+       }
+      for (j = 0; j < meuArrayInvertido.length; j++){// arrayPar
+        resultForOdd += meuArrayInvertido[j];
+        //console.log(resultForOdd);
+        j++;}
+         total = evenPosition + resultForOdd;
+         console.log(total);
+          }
+           separarMultiplicarSomar(meuArrayInvertido);
+
+
