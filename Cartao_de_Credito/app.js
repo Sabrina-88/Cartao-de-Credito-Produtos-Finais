@@ -1,54 +1,48 @@
-//function cartao(meuArray){//4083952015263 
-  var numeroCartao = prompt("Olá! Digite o número do seu Cartão de Crédito");
-  if (numeroCartao == ''){
-   alert("Atenção! Digite o número do seu Cartão de Crédito");	
-  }else{
-    var meuArray = numeroCartao.split('');//transformou cada digito em array
-    meuArrayInvertido = meuArray.reverse();// inverte o array
+var numberCard = prompt("Olá! Digite o número do seu Cartão de Crédito sem espaço.");
+if (numberCard === '' || isNaN(numberCard) || numberCard === ' ' ){
+ alert("Atenção! Digite o SOMENTE os número do seu Cartão de Crédito.");
+}else{
+    var myArray = numberCard.split('');
+    myArrayInverted = myArray.reverse();
 
-    //Transformando array em inteiros
-    function arrayInteiros(meuArrayInvertido){
-      for (var i in meuArrayInvertido){
-        meuArrayInvertido[i] = parseInt(meuArrayInvertido[i]);
-        console.log(meuArrayInvertido);
+
+    function arrayInteiros(myArrayInverted){
+      for (var i in myArrayInverted){
+        myArrayInverted[i] = parseInt(myArrayInverted[i]);
+        console.log(myArrayInverted);
       }
-      return meuArrayInvertido;
+      return myArrayInverted;
     }
-    arrayInteiros(meuArrayInvertido);
+    arrayInteiros(myArrayInverted);
 
-  // Separando pares, multiplicando e somando o resultado
-  function isValidCard(meuArrayInvertido){
+  
+  function isValidCard(myArrayInverted){
     var resultForPair = 0;
     var evenPosition = 0;
     var resultForOdd = 0;
     var total = 0;
-    for (i = 1; i < meuArrayInvertido.length; i++){// arrayImpar
-      resultForPair = meuArrayInvertido[i]*2;
-      //console.log(resultForPair);
+    for (i = 1; i < myArrayInverted.length; i++){// arrayImpar
+      resultForPair = myArrayInverted[i]*2;
       if(resultForPair > 9){
         resultForPair = resultForPair - 9;
         evenPosition = evenPosition + resultForPair;
-        //console.log(evenPosition);
       }else{
        evenPosition = evenPosition + resultForPair;
-            //console.log ("total é " + evenPosition);
           }
           i++;
-      }
-      for (j = 0; j < meuArrayInvertido.length; j++){// arrayPar
-        resultForOdd += meuArrayInvertido[j];
-        //console.log(resultForOdd);
+        }
+      for (j = 0; j < myArrayInverted.length; j++){
+        resultForOdd += myArrayInverted[j];
         j++;}
         total = evenPosition + resultForOdd;
         console.log(total);
-        // ultima operação 
-      if (total % 10 === 0){
-		
-        document.write ("CARTÃO VÁLIDO!");
+        if (total % 10 === 0){
+          
+          document.write ("CARTÃO VÁLIDO!");
+        }
+        else{
+          document.write("CARTÃO INVÁLIDO!");
+        }        
       }
-      else{
-        document.write("CARTÃO INVÁLIDO!");
-          }        
-  }
-isValidCard(meuArrayInvertido);
-}
+      isValidCard(myArrayInverted);
+    }
