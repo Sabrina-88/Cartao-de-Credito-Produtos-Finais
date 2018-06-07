@@ -1,4 +1,4 @@
-///function cartao(meuArray){//4083952015263 
+//function cartao(meuArray){//4083952015263 
   var numeroCartao = prompt("Olá! Digite o número do seu Cartão de Crédito");
   if (numeroCartao == ''){
    alert("Atenção! Digite o número do seu Cartão de Crédito");	
